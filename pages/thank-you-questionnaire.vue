@@ -15,7 +15,6 @@
       <div class="absolute bottom-48 right-16 w-2 h-7 bg-green-300 transform rotate-12 opacity-60"></div>
     </div>
 
-    <!-- Header -->
     <!-- Main Content -->
     <main class="pt-6 pb-32 px-6 flex flex-col items-center justify-center min-h-screen text-center">
       <!-- Back Button -->
@@ -27,6 +26,7 @@
           class="text-white"
         />
       </div>
+      
       <!-- Logo -->
       <div class="w-24 h-20 mb-8 bg-brand-aqua rounded-2xl flex items-center justify-center relative">
         <Icon name="i-heroicons-home" class="w-14 h-14 text-white" />
@@ -43,10 +43,7 @@
         
         <div class="space-y-2">
           <p class="text-22-emphasized text-white">
-            🎉 Finally! You're in control
-          </p>
-          <p class="text-18-medium text-white/90">
-            ✨ Stress less. Move better.
+            🔶 Thank you for sharing your preferences they have been saved.
           </p>
         </div>
         
@@ -58,7 +55,7 @@
       <!-- Action Buttons -->
       <div class="w-full space-y-4">
         <button
-          @click="continueToQuestionnaire"
+          @click="continueToApp"
           class="w-full h-12 bg-brand-aqua hover:bg-brand-aqua/90 text-white font-17-medium rounded-xl transition-colors"
         >
           Continue building your profile
@@ -74,7 +71,7 @@
 
       <!-- Progress indicator -->
       <div class="mt-8 w-32 h-1 bg-white/20 rounded-full overflow-hidden">
-        <div class="w-3/4 h-full bg-white rounded-full"></div>
+        <div class="w-full h-full bg-white rounded-full"></div>
       </div>
     </main>
   </div>
@@ -82,11 +79,11 @@
 
 <script setup>
 definePageMeta({
-  title: 'Welcome - UmovingU'
+  title: 'Thank You - UmovingU'
 })
 
-const continueToQuestionnaire = () => {
-  navigateTo('/questionnaire/1')
+const continueToApp = () => {
+  navigateTo('/dashboard')
 }
 
 const skipToApp = () => {

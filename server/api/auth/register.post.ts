@@ -23,7 +23,8 @@ export default defineEventHandler(async (event) => {
         email: email || 'user@example.com',
         name: fullName || 'New User'
       },
-      token: 'mock-jwt-token'
+      token: 'mock-jwt-token',
+      redirect: '/thank-you'
     }
   }
   

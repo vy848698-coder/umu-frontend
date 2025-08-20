@@ -1,28 +1,17 @@
 <template>
   <div class="mobile-container gradient-bg">
     <!-- Header -->
-    <header class="fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-sm z-50">
-      <div class="flex items-center justify-between px-4 py-3 bg-black/10 backdrop-blur-sm">
+    <!-- Main Content -->
+    <main class="pt-6 pb-8 px-6">
+      <!-- Back Button -->
+      <div class="mb-6">
         <UButton 
           @click="$router.back()"
           variant="ghost" 
           icon="i-heroicons-arrow-left"
           class="text-white"
         />
-        <div class="text-white font-semibold text-17-medium">
-          9:41
-        </div>
-        <div class="flex items-center space-x-1">
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-        </div>
       </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="pt-20 pb-8 px-6">
       <div class="space-y-6">
         <!-- Title -->
         <div>

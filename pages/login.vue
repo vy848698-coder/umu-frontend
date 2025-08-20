@@ -114,13 +114,11 @@ const handleSubmit = async () => {
   isLoading.value = true
   
   try {
-    const { data } = await $fetch('/api/auth/login', {
-      method: 'POST',
-      body: form.value
-    })
+    // Simulate login for demo
+    await new Promise(resolve => setTimeout(resolve, 1000))
     
     // Handle successful login
-    await navigateTo('/dashboard')
+    await navigateTo('/thank-you')
   } catch (error) {
     console.error('Login failed:', error)
     // Handle error - show toast notification
