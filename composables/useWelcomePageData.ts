@@ -1,6 +1,6 @@
 // composables/useWelcomePageData.ts
 
-import { onMounted, ref } from "vue"
+import { onMounted, onUnmounted, ref, computed } from "vue"
 
 export interface WelcomeSlide {
   id: number
@@ -43,15 +43,49 @@ const SLIDES_DATA: WelcomeSlide[] = [
 
 export const useWelcomePageData = () => {
   const slides = ref<WelcomeSlide[]>([])
+  const currentSlideIndex = ref(0)
+  const INTERVAL_TIME = 5000
+
+  const currentSlide = computed(() => slides.value[currentSlideIndex.value])
+
+  let intervalId: NodeJS.Timeout | null = null
+
+  const startSlideShow = () => {
+    if (intervalId) return // Prevent multiple intervals
+    
+    intervalId = setInterval(() => {
+      currentSlideIndex.value = (currentSlideIndex.value + 1) % slides.value.length
+    }, INTERVAL_TIME)
+  }
+
+  const stopSlideShow = () => {
+    if (intervalId) {
+      clearInterval(intervalId)
+      intervalId = null
+    }
+  }
+
+  const goToSlide = (index: number) => {
+    if (index >= 0 && index < slides.value.length) {
+      currentSlideIndex.value = index
+    }
+  }
 
   const loadSlides = async () => {
     slides.value = SLIDES_DATA
+    startSlideShow()
   }
 
-  onMounted(loadSlides);
+  onMounted(loadSlides)
+  onUnmounted(stopSlideShow)
 
   return {
     slides,
+    currentSlideIndex,
+    currentSlide,
     loadSlides,
+    startSlideShow,
+    stopSlideShow,
+    goToSlide,
   }
 }

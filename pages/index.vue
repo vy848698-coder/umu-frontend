@@ -1,32 +1,24 @@
 <template>
   <div class="mobile-container backgound-image">
-    <ProgressBar :steps="slides.length" :currentStep="counter" />
+    <ProgressBar :steps="slides.length" :currentStep="currentSlideIndex" />
     <LogoAndSkip @onClick="onSkipClick" />
-    <TitleAndText :title="currentSlide?.title" :description="currentSlide?.description" />
+    <TitleAndText 
+      :title="currentSlide?.title" 
+      :description="currentSlide?.description" 
+    />
   </div>
 </template>
 
 <script setup>
-import ProgressBar from '@/components/ProgressBar.vue';
-import LogoAndSkip from '@/components/LogoAndSkip.vue';
-import TitleAndText from '@/components/TitleAndText.vue';
-import { useWelcomePageData } from '@/composables/useWelcomePageData';
+import ProgressBar from '@/components/ProgressBar.vue'
+import LogoAndSkip from '@/components/LogoAndSkip.vue'
+import TitleAndText from '@/components/TitleAndText.vue'
+import { useWelcomePageData } from '@/composables/useWelcomePageData'
 
-const { slides } = useWelcomePageData();
-const counter = ref(0);
-const currentSlide = computed(() => slides.value[counter.value]);
-
-const INTERVAL_TIME = 5000;
-const intervalId = setInterval(() => {
-  counter.value = (counter.value + 1) % slides.value.length;
-}, INTERVAL_TIME);
-
-onUnmounted(() => {
-  clearInterval(intervalId);
-});
+const { slides, currentSlideIndex, currentSlide } = useWelcomePageData()
 
 const onSkipClick = () => {
-  alert('skip');
+  alert('skip')
 }
 
 </script>
