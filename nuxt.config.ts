@@ -10,8 +10,11 @@ export default defineNuxtConfig({
       title: 'UmovingU - Your Property Toolkit',
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Your complete property toolkit—track progress, store documents, and connect with trusted trades in one place.' }
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
+        { name: 'description', content: 'Your complete property toolkit—track progress, store documents, and connect with trusted trades in one place.' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'mobile-web-app-capable', content: 'yes' }
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
