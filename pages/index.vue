@@ -18,8 +18,8 @@
 
         <!-- Logo and Title -->
         <div class="mb-6">
-          <div class="w-14 h-12 mb-4 rounded-lg flex items-center justify-center">
-            <img src="/logo.png" alt="Logo" class="w-14 h-8" />
+          <div class="w-14 h-12 rounded-lg flex items-center justify-center">
+            <img src="/public/logo.svg" alt="Logo" class="w-18 h-8" /> 
           </div>
           
           <div class="space-y-1">
@@ -85,7 +85,7 @@
          hover:bg-brand-aqua/10"
             :loading="isLoggingIn"
           >
-            Log in
+            Log in 
           </UButton>
         </div>
         

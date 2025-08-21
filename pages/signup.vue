@@ -14,9 +14,10 @@
       </div>
       <div class="space-y-8">
         <!-- Logo and Welcome -->
-        <div class="text-center space-y-4">
-          <div class="w-20 h-16 mx-auto bg-brand-aqua rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="i-heroicons-home" class="w-12 h-12 text-white" />
+        <div class="space-y-4">
+          <div class="w-20 h-16 flex items-start justify-start mb-6">
+            <!-- <Icon name="i-heroicons-home" class="w-12 h-12 text-white" /> -->
+            <img src="/public/logo_new.svg" alt="Logo" class="w-18 h-16 me-auto" /> 
           </div>
           
           <div class="space-y-2">
@@ -30,7 +31,7 @@
         </div>
 
         <!-- Social Login Buttons -->
-        <div class="space-y-3">
+        <div class="space-y-3 mt-4">
           <button
             @click="handleSocialLogin('apple')"
             class="w-full h-12 bg-white text-gray-900 font-17-medium rounded-xl hover:bg-gray-50 flex items-center justify-center transition-colors"
