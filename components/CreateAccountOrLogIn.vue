@@ -49,6 +49,7 @@ const onLogin = () => {
     border-radius: 12px;
     color: white;
     transition: background-color 0.15s ease;
+    font-size: 17px;
   }
 
   &__button-create-account {
