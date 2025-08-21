@@ -37,7 +37,7 @@
             class="w-full h-12 bg-white text-gray-900 font-17-medium rounded-xl hover:bg-gray-50 flex items-center justify-center transition-colors"
             :disabled="socialLoading.apple"
           >
-            <Icon name="i-heroicons-device-phone-mobile" class="w-5 h-5 mr-2" />
+            <img src="/public/icons/Apple.svg" class="w-5 h-5 mr-2" />
             {{ socialLoading.apple ? 'Connecting...' : 'Continue with Apple' }}
           </button>
 
@@ -46,7 +46,7 @@
             class="w-full h-12 bg-white text-gray-900 font-17-medium rounded-xl hover:bg-gray-50 flex items-center justify-center transition-colors"
             :disabled="socialLoading.google"
           >
-            <Icon name="i-heroicons-globe-alt" class="w-5 h-5 mr-2" />
+            <img src="/public/icons/Google.svg" class="w-5 h-5 mr-2" />
             {{ socialLoading.google ? 'Connecting...' : 'Continue with Google' }}
           </button>
 
@@ -55,7 +55,7 @@
             class="w-full h-12 bg-white text-gray-900 font-17-medium rounded-xl hover:bg-gray-50 flex items-center justify-center transition-colors"
             :disabled="socialLoading.facebook"
           >
-            <Icon name="i-heroicons-users" class="w-5 h-5 mr-2" />
+            <img src="/public/icons/Facebook.svg" class="w-5 h-5 mr-2" />
             {{ socialLoading.facebook ? 'Connecting...' : 'Continue with Facebook' }}
           </button>
         </div>
