@@ -22,7 +22,7 @@ const segments = Array.from({ length: props.steps }, (_, index) => ({
 
 <style scoped>
 .progress {
-  @apply flex items-center justify-center gap-1 px-6 mt-3;
+  @apply flex items-center justify-center gap-1 px-4 pt-3;
 }
 
 .progress__segment {
