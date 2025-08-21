@@ -11,13 +11,18 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 const props = defineProps<{
   steps: number;
   currentStep: number;
 }>();
-const segments = Array.from({ length: props.steps }, (_, index) => ({
-  filled: index < props.currentStep,
-}));
+
+const segments = computed(() => 
+  Array.from({ length: props.steps }, (_, index) => ({
+    filled: index <= props.currentStep,
+  }))
+);
 </script>
 
 <style scoped>
