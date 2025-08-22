@@ -27,6 +27,9 @@
     background: linear-gradient(180deg, #231d45 0%, #09f0e6 100%);
   } */
 
+
+
+
   .gradient-bg {
      background: linear-gradient(to bottom, #595959 0%, #999999 100%);
      position: relative;

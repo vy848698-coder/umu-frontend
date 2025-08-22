@@ -1,7 +1,9 @@
 <template>
-  <div class="mobile-container gradient-bg">
-    <!-- Header -->
-    <!-- Main Content -->
+  <div class="mobile-container gradient-bg backgound-image">
+   
+
+    <div class="relative z-10">
+      <!-- Main Content -->
     <main class="pt-6 pb-8 px-6">
       <!-- Back Button -->
       <div class="mb-6">
@@ -93,6 +95,8 @@
         </div>
       </div>
     </main>
+    </div>
+    
   </div>
 </template>
 

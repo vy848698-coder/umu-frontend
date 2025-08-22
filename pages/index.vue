@@ -288,13 +288,11 @@ const handleLogin = async () => {
 </script>
 
 <style>
-.backgound-image{
+  .backgound-image{
   background-image: url('/public/images/onboarding_background.jpg');
   background-size: cover;
   background-position: center;
   /* opacity: 0.5; */
    position: relative; 
 }
-
-
 </style>
