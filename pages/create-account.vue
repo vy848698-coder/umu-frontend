@@ -277,47 +277,63 @@
       class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
     >
       <div
-        class="bg-white rounded-xl p-6 w-full max-w-sm max-h-96 overflow-y-auto"
+        class="bg-white rounded-xl w-full max-w-sm flex flex-col relative"
+        style="max-height: 24rem"
       >
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="text-lg font-semibold">Terms and Conditions</h3>
-          <button @click="showTermsModal = false" class="text-gray-500">
-            <Icon name="i-heroicons-x-mark" class="w-6 h-6" />
-          </button>
+        <!-- Close Button -->
+        <button
+          @click="showTermsModal = false"
+          class="absolute top-4 right-4 text-gray-500 z-10"
+          aria-label="Close"
+        >
+          <Icon name="i-heroicons-x-mark" class="w-6 h-6" />
+        </button>
+
+        <!-- Title -->
+        <h3 class="text-lg font-semibold text-center mt-6 mb-2">
+          Terms and Conditions
+        </h3>
+
+        <!-- Scrollable Terms Content -->
+        <div class="flex-1 overflow-y-auto px-4">
+          <div
+            class="bg-white border border-gray-200 rounded-lg p-4 text-sm space-y-4"
+          >
+            <div>
+              <h4 class="font-semibold mb-2">Terms of Business</h4>
+              <p class="text-gray-600 mb-2">
+                Last updated: <i>4th July 2025</i>
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">1. Introduction</h4>
+              <p class="text-gray-600">
+                Welcome to OpenProperty and UmovingU. These Terms of Business
+                ("Terms") govern your use of our websites, mobile applications,
+                and related services (collectively, "Services"). By using our
+                Services, you agree to be bound by these Terms.
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">2. Our Services</h4>
+              <p class="text-gray-600">
+                OpenProperty provides digital infrastructure and tools for
+                managing, sharing, and accessing property-related information.
+                UmovingU is a consumer-focused application that helps users
+                prepare their property data for transactions.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="space-y-4 text-sm">
-          <div>
-            <h4 class="font-semibold mb-2">Terms of Business</h4>
-            <p class="text-gray-600 mb-2">Last updated: 4th July 2025</p>
-          </div>
-
-          <div>
-            <h4 class="font-semibold mb-2">1. Introduction</h4>
-            <p class="text-gray-600">
-              Welcome to OpenProperty and UmovingU. These Terms of Business
-              ("Terms") govern your use of our websites, mobile applications,
-              and related services (collectively, "Services"). By using our
-              Services, you agree to be bound by these Terms.
-            </p>
-          </div>
-
-          <div>
-            <h4 class="font-semibold mb-2">2. Our Services</h4>
-            <p class="text-gray-600">
-              OpenProperty provides digital infrastructure and tools for
-              managing, sharing, and accessing property-related information.
-              UmovingU is a consumer-focused application that helps users
-              prepare their property data for transactions.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex justify-end mt-6">
+        <!-- Divider and Button (sticky/fixed at bottom of modal) -->
+        <div class="mx-5 bg-white rounded-xl my-4">
+          <div class="border-t border-gray-200"></div>
           <button
             @click="acceptTerms"
-            class="bg-brand-aqua text-white px-6 py-2 rounded-lg font-medium"
+            class="w-full flex items-center justify-center gap-2 bg-brand-aqua text-white px-6 py-3 rounded-xl font-medium hover:bg-brand-aqua/90 transition-colors"
           >
+            <Icon name="i-heroicons-check" class="w-5 h-5" />
             I Agree
           </button>
         </div>
