@@ -14,7 +14,8 @@
     "@pinia/nuxt": "^0.5.5",
     "nuxt": "^3.13.0",
     "pinia": "^2.2.4",
-    "vue": "latest"
+    "vue": "latest",
+    "vue3-tel-input": "^1.0.4"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.5.2",
