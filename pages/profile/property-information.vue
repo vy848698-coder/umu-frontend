@@ -12,7 +12,7 @@
       <h1
         class="font-sf-pro text-[17px] leading-[22px] tracking-[-0.43px] font-[590] text-black text-center"
       >
-        Collaborators
+        Maxine Wilson
       </h1>
 
       <button
@@ -29,112 +29,238 @@
 
     <main class="px-4 pb-8">
       <section class="pt-6">
-        <div class="rounded-3xl bg-white p-4">
-          <p class="text-[15px] leading-[20px] text-[#101319] font-semibold">
-            Property Team
-          </p>
-          <p class="mt-1 text-[13px] leading-[18px] text-[#7f8084]">
-            Invite and manage people who can help with this property journey.
-          </p>
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-22-emphasized text-black">Maxine Wilson</h2>
+            <p
+              class="font-sf-pro text-[15px] leading-[20px] tracking-[-0.23px] text-[#3C3C43] opacity-60%"
+            >
+              maxinewilson@yahoo.com
+            </p>
+            <p
+              class="font-sf-pro text-[12px] leading-[16px] tracking-[0px] text-[#3C3C43] opacity-60%"
+            >
+              Joined June 12, 2023
+            </p>
+            <div class="mt-5 flex items-center gap-3">
+              <span
+                class="h-9 px-4 rounded-full bg-gray-200 text-[#00A19A] text-[11px] leading-[13px] font-semibold inline-flex items-center"
+              >
+                ACTIVE
+              </span>
+              <span
+                class="text-[#00A19A] text-[11px] leading-[13px] tracking-[0.06px] font-semibold"
+              >
+                CO-LISTING COLLABORATOR
+              </span>
+            </div>
+          </div>
+
+          <img
+            src="/op-icons/temp/profilepic.png"
+            alt="Profile avatar"
+            class="w-[97px] h-[97px] rounded-full object-cover"
+          />
+        </div>
+
+        <div class="mt-8 flex items-center btn-container">
+          <button
+            type="button"
+            class="w-[50px] h-[50px] rounded-full bg-[#ffffff] flex items-center justify-center shrink-0"
+            aria-label="Message"
+          >
+            <Icon
+              name="i-heroicons-chat-bubble-left-ellipsis"
+              class="w-17 h-22 text-brand-aqua"
+            />
+          </button>
 
           <button
             type="button"
-            class="mt-4 w-full h-12 rounded-2xl bg-brand-aqua text-white inline-flex items-center justify-center gap-2 text-[15px] leading-[20px] font-medium"
-            @click="addCollaborator"
+            class="w-[50px] h-[50px] rounded-full bg-[#ffffff] flex items-center justify-center shrink-0"
+            aria-label="Call"
           >
-            <Icon name="i-heroicons-plus" class="w-5 h-5" />
-            <span>Add Collaborator</span>
+            <Icon
+              name="i-heroicons-phone-arrow-up-right"
+              class="w-17 h-22 text-brand-aqua"
+            />
+          </button>
+
+          <button
+            type="button"
+            class="w-[254px] h-[50px] pt-[14px] pr-[20px] pb-[14px] pl-[20px] gap-[4px] rounded-[12px] bg-brand-aqua text-white text-[17px] leading-[22px] font-medium inline-flex items-center justify-center"
+          >
+            <Icon
+              name="i-heroicons-arrow-up-on-square"
+              class="w-17 h-22 text-white"
+            />
+            Share Property
           </button>
         </div>
       </section>
 
-      <section class="mt-6">
-        <h2
-          class="text-[15px] leading-[20px] font-semibold text-[#101319] mb-3"
+      <section class="mt-10">
+        <h3
+          class="font-sf-pro text-[15px] leading-[20px] tracking-[-0.23px] font-[590] text-[#000000]"
         >
-          Current Collaborators
-        </h2>
-
-        <div class="space-y-3">
-          <article
-            v-for="person in collaborators"
-            :key="person.email"
-            class="bg-white rounded-3xl p-4"
-          >
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex items-start gap-3 min-w-0">
-                <img
-                  :src="person.avatar"
-                  :alt="person.name"
-                  class="w-12 h-12 rounded-full object-cover"
-                />
-
-                <div class="min-w-0">
-                  <p
-                    class="text-[15px] leading-[20px] text-[#101319] font-semibold"
-                  >
-                    {{ person.name }}
-                  </p>
-                  <p class="text-[13px] leading-[18px] text-[#7f8084] truncate">
-                    {{ person.email }}
-                  </p>
-                  <p class="mt-1 text-[12px] leading-[16px] text-brand-aqua">
-                    {{ person.role }}
-                  </p>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                class="w-9 h-9 rounded-full border border-[#d9dae0] text-[#1f2024] inline-flex items-center justify-center"
-                @click="removeCollaborator(person.email)"
-                :aria-label="`Remove ${person.name}`"
-              >
-                <Icon name="i-heroicons-trash" class="w-4 h-4" />
-              </button>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="mt-6">
-        <h2
-          class="text-[15px] leading-[20px] font-semibold text-[#101319] mb-3"
+          Shared Properties
+        </h3>
+        <p
+          class="mt-1 text-[13px] leading-[18px] tracking-[-0.08px] text-[#3C3C43] opacity-60"
         >
-          Access Settings
-        </h2>
+          5 Properties Shared
+        </p>
 
-        <div class="space-y-3">
+        <div class="mt-4 space-y-3">
           <div
-            v-for="setting in accessSettings"
-            :key="setting.label"
-            class="bg-white rounded-3xl p-4 flex items-center justify-between"
+            v-for="property in sharedProperties"
+            :key="property.address"
+            class="bg-white rounded-3xl px-4 py-3 flex items-center gap-3"
           >
-            <div>
-              <p class="text-[15px] leading-[20px] text-[#101319]">
-                {{ setting.label }}
+            <img
+              src="/images/addressSearch.png"
+              alt="Map preview"
+              class="w-[56px] h-[56px] rounded-[6px] object-cover"
+            />
+
+            <div class="flex-1 min-w-0">
+              <p
+                class="text-[17px] leading-[22px] tracking-[-0.43px] font-medium text-black truncate"
+              >
+                {{ property.address }}
               </p>
-              <p class="text-[13px] leading-[18px] text-[#7f8084]">
-                {{ setting.description }}
+              <p
+                class="text-[13px] leading-[18px] tracking-[-0.08px] text-gray-500 truncate"
+              >
+                {{ property.area }}
+              </p>
+              <p
+                class="text-[13px] leading-[18px] tracking-[-0.08px] text-gray-500 truncate"
+              >
+                {{ property.postcode }}
               </p>
             </div>
 
             <button
               type="button"
-              class="relative w-12 h-7 rounded-full transition-colors"
-              :class="setting.value ? 'bg-brand-aqua' : 'bg-[#d9dae0]'"
-              @click="setting.value = !setting.value"
-              :aria-label="`Toggle ${setting.label}`"
+              class="w-[24px] h-[24px] rounded-full border border-gray-200 text-[#000000] flex items-center justify-center"
+              aria-label="Property actions"
             >
-              <span
-                class="absolute top-0.5 w-6 h-6 rounded-full bg-white transition-transform"
-                :class="
-                  setting.value ? 'translate-x-[-2px]' : 'translate-x-[-20px]'
-                "
-              />
+              <Icon name="i-heroicons-ellipsis-horizontal" class="w-13 h-18" />
             </button>
           </div>
         </div>
+
+        <button
+          type="button"
+          class="mt-4 w-full h-20 rounded-full bg-white px-6 text-brand-aqua text-[15px] leading-[20px] tracking-[-0.23px] font-medium flex items-center justify-between"
+        >
+          <span>Show all share properties</span>
+          <Icon
+            name="i-heroicons-chevron-right"
+            class="w-[16px] h-[21px] text-[#3C3C43] opacity-80"
+          />
+        </button>
+      </section>
+
+      <section class="mt-10">
+        <h3
+          class="text-[15px]-emphasized leading-[20px] tracking-[-0.23px] font-semibold text-black"
+        >
+          Permissions &amp; Access
+        </h3>
+
+        <div class="mt-4 space-y-3">
+          <div
+            v-for="permission in permissions"
+            :key="permission.label"
+            class="bg-white rounded-3xl px-6 py-5 flex items-center justify-between"
+          >
+            <p class="text-[17px] leading-[22px] tracking-[-0.43px] text-black">
+              {{ permission.label }}
+            </p>
+
+            <button
+              type="button"
+              class="relative w-12 h-7 rounded-full transition-colors bg-brand-aqua"
+              aria-label="Permission enabled"
+            >
+              <span
+                class="absolute top-0.5 right-0.5 w-6 h-6 rounded-full bg-white"
+              />
+            </button>
+          </div>
+
+          <div
+            class="bg-white rounded-3xl px-6 py-5 flex items-center justify-between"
+          >
+            <div>
+              <p
+                class="text-[15px]-regular leading-[20px] tracking-[-0.23px] text-black"
+              >
+                Partnership Validity
+              </p>
+              <p
+                class="text-[13px]-regular leading-[18px] tracking-[-0.08px] text-[#3C3C43] opacity-60"
+              >
+                Until 24 Sep 2025
+              </p>
+            </div>
+
+            <button
+              type="button"
+              class="h-12 px-5 rounded-full bg-teal-50 text-brand-aqua text-[15px] leading-[20px] font-medium"
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-10">
+        <h3
+          class="text-[15px]-emphasized leading-[20px] tracking-[-0.23px] font-semibold text-black"
+        >
+          Recent Activity
+        </h3>
+
+        <div class="mt-4 space-y-3">
+          <button
+            v-for="activity in recentActivity"
+            :key="activity.title"
+            type="button"
+            class="w-full bg-white rounded-3xl px-6 py-5 flex items-center justify-between text-left"
+          >
+            <div>
+              <p
+                class="text-[15px]-emphasized leading-[20px] tracking-[-0.23px] text-black"
+              >
+                {{ activity.title }}
+              </p>
+              <p
+                class="text-[13px]-regular leading-[18px] tracking-[-0.08px] text-[#3C3C43] opacity-60 mt-1"
+              >
+                {{ activity.time }}
+              </p>
+            </div>
+
+            <Icon
+              name="i-heroicons-chevron-right"
+              class="w-7 h-4 text-gray-400"
+            />
+          </button>
+        </div>
+
+        <button
+          type="button"
+          class="mt-4 w-full h-20 rounded-full bg-white px-6 text-brand-aqua text-[15px]-regular leading-[20px] tracking-[-0.23px] font-medium flex items-center justify-between"
+        >
+          <span>Show older activity</span>
+          <Icon
+            name="i-heroicons-chevron-right"
+            class="w-7 h-4 text-gray-400"
+          />
+        </button>
       </section>
     </main>
   </div>
@@ -142,57 +268,42 @@
 
 <script setup>
 definePageMeta({
-  title: "Collaborators - UmovingU",
+  title: "Property Information - UmovingU",
 });
 
-const collaborators = ref([
+const sharedProperties = [
   {
-    name: "Maxine Wilson",
-    email: "maxinewilson@wilson.co.uk",
-    role: "Owner",
-    avatar: "/op-icons/temp/profilepic.png",
+    address: "21, Rochester",
+    area: "Earlsdon, Coventry",
+    postcode: "CV5 6AB",
   },
   {
-    name: "David Smith",
-    email: "david.smith@davidsonlaw.co.uk",
-    role: "Solicitor",
-    avatar: "/op-icons/temp/profilepic.png",
+    address: "7, London Road",
+    area: "Sunninghill, Ascot",
+    postcode: "SL5 7BG",
   },
-  {
-    name: "Olivia Thompson",
-    email: "olivia.thompson@acmeagency.co.uk",
-    role: "Estate Agent",
-    avatar: "/op-icons/temp/profilepic.png",
-  },
-]);
+];
 
-const accessSettings = ref([
-  {
-    label: "Allow collaborators to upload documents",
-    description: "Permit secure document uploads for this property.",
-    value: true,
-  },
-  {
-    label: "Allow collaborators to view progress",
-    description: "Show milestones and completed tasks.",
-    value: true,
-  },
-  {
-    label: "Email alerts for collaborator updates",
-    description: "Receive an email when permissions or members change.",
-    value: false,
-  },
-]);
+const permissions = [
+  { label: "View All Properties" },
+  { label: "Share Listings" },
+  { label: "Client Communications" },
+];
 
-const removeCollaborator = (email) => {
-  collaborators.value = collaborators.value.filter(
-    (person) => person.email !== email,
-  );
-};
-
-const addCollaborator = () => {
-  navigateTo("/profile");
-};
+const recentActivity = [
+  {
+    title: "Shared property listing via email",
+    time: "1 Day Ago",
+  },
+  {
+    title: "Added New Certificate - EPC May 2025",
+    time: "2 Day Ago",
+  },
+  {
+    title: "Updated property details for client",
+    time: "3 Day Ago",
+  },
+];
 
 const goBack = () => {
   if (typeof window !== "undefined" && window.history.length > 1) {
@@ -203,3 +314,9 @@ const goBack = () => {
   navigateTo("/profile");
 };
 </script>
+
+<style scoped>
+.btn-container {
+  gap: 32px;
+}
+</style>

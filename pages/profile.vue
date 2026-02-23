@@ -146,6 +146,7 @@ const profileItems = [
     description:
       "Invite, manage, and control who you work with across your property journey.",
     icon: "i-heroicons-users",
+    route: "/profile/property-information",
   },
   {
     title: "Your Documents",
