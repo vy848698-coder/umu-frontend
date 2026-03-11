@@ -6,18 +6,18 @@
         class="w-10 h-10 flex items-center justify-center"
         @click="goBack"
       >
-        <Icon name="i-heroicons-chevron-left" class="w-6 h-6 text-black" />
+        <Icon name="i-heroicons-chevron-left" class="w-6 h-6 text-gray-900" />
       </button>
 
       <h1
-        class="font-sf-pro text-[17px] leading-[22px] tracking-[-0.43px] font-[590] text-black text-center"
+        class="font-sf-pro text-[17px]-emphasized leading-[22px] tracking-[-0.43px] font-[590] text-[#000000] text-center"
       >
         Collaborators
       </h1>
 
       <button
         type="button"
-        class="w-8 h-8 rounded-full bg-[#403d91] flex items-center justify-center"
+        class="w-9 h-9 rounded-full bg-[#403D91] text-white flex items-center justify-center"
         aria-label="More"
       >
         <Icon
@@ -27,171 +27,410 @@
       </button>
     </header>
 
-    <main class="px-4 pb-8">
-      <section class="pt-6">
-        <div class="rounded-3xl bg-white p-4">
-          <p class="text-[15px] leading-[20px] text-[#101319] font-semibold">
-            Property Team
-          </p>
-          <p class="mt-1 text-[13px] leading-[18px] text-[#7f8084]">
-            Invite and manage people who can help with this property journey.
-          </p>
-
-          <button
-            type="button"
-            class="mt-4 w-full h-12 rounded-2xl bg-brand-aqua text-white inline-flex items-center justify-center gap-2 text-[15px] leading-[20px] font-medium"
-            @click="addCollaborator"
+    <main class="px-4 pb-6">
+      <section class="pt-7 text-center">
+        <div class="avatar-stack">
+          <div
+            v-for="person in summaryCollaborators"
+            :key="person.name"
+            class="summary-avatar"
           >
-            <Icon name="i-heroicons-plus" class="w-5 h-5" />
-            <span>Add Collaborator</span>
-          </button>
+            <img
+              v-if="person.avatar"
+              :src="person.avatar"
+              :alt="person.name"
+              class="w-full h-full rounded-full object-cover"
+            />
+            <span v-else class="text-[26px]">{{ person.emoji }}</span>
+          </div>
         </div>
-      </section>
 
-      <section class="mt-6">
         <h2
-          class="text-[15px] leading-[20px] font-semibold text-[#101319] mb-3"
+          class="mt-4 text-[20px] leading-[25px] font-semibold text-[#000000]"
         >
-          Current Collaborators
+          {{ collaborators.length }} Collaborators
         </h2>
 
-        <div class="space-y-3">
+        <p
+          class="inline-flex mt-2 rounded-full bg-[#7878801F] opacity-12 px-4 h-8 items-center text-brand-aqua font-semibold text-[11px] leading-[13px]"
+        >
+          OWNER: {{ ownerName }}
+        </p>
+
+        <p
+          class="mt-3 text-[15px] leading-[20px] tracking-[-0.23px] text-[#3C3C4399] opacity-60%"
+        >
+          Team Members: {{ collaborators.length }} • Partners:
+          {{ partnerCount }} • Clients: {{ clientCount }} • Pending:
+          {{ pendingCount }}
+        </p>
+      </section>
+
+      <section class="mt-6 flex items-center gap-2">
+        <div
+          class="h-14 rounded-2xl bg-white/90 border border-gray-200 px-4 flex items-center gap-3 flex-1"
+        >
+          <Icon
+            name="i-heroicons-magnifying-glass"
+            class="w-6 h-6 text-gray-400"
+          />
+          <input
+            v-model="searchText"
+            type="text"
+            placeholder="Search collaborators"
+            class="w-full bg-transparent outline-none text-[17px]-regular leading-[22px] tracking-[-0.43px] text-[#3C3C4399] opacity-90 placeholder:text-gray-400"
+          />
+        </div>
+
+        <button
+          type="button"
+          class="w-14 h-14 rounded-2xl bg-brand-aqua text-white flex items-center justify-center"
+          aria-label="Open filters"
+        >
+          <Icon
+            name="i-heroicons-adjustments-horizontal"
+            class="text-[15px] leading-[20px]"
+          />
+        </button>
+      </section>
+
+      <div class="h-px w-[calc(100%+2rem)] -ml-4 bg-gray-200" />
+
+      <section class="mt-8">
+        <button
+          type="button"
+          class="w-full bg-white rounded-3xl p-5 text-left flex items-center justify-between"
+          @click="openCollaboratorTypeModal"
+        >
+          <div class="flex items-center gap-3 min-w-0">
+            <span
+              class="w-[16px] h-[22px] rounded-full bg-brand-aqua/10 text-brand-aqua inline-flex items-center justify-center"
+            >
+              <Icon name="i-heroicons-user-plus" class="w-5 h-5" />
+            </span>
+            <div>
+              <p
+                class="text-brand-aqua text-[15px]-regular w-400 leading-[20px] tracking-[-0.23px] font-medium"
+              >
+                Add Collaborators
+              </p>
+              <p
+                class="mt-1 text-brand-aqua text-[13px]-regular leading-[18px] tracking-[-0.08px] w-400 font-normal"
+              >
+                Add agents, brokers, assistants, or partners
+              </p>
+            </div>
+          </div>
+
+          <Icon
+            name="i-heroicons-chevron-right"
+            class="w-5 h-5 text-[#3C3C434D]"
+          />
+        </button>
+      </section>
+
+      <section class="mt-7">
+        <h3
+          class="text-[15px]-emphasized leading-[20px] font-sf pro text-[#000000] font-[590] tracking-[-0.23px ]"
+        >
+          Collaborators
+        </h3>
+        <p
+          class="mt-1 text-[13px]-regular leading-[18px] tracking-[-0.08px] text-[#3C3C4399] opacity-60%"
+        >
+          All Team Members
+        </p>
+
+        <div class="mt-4 space-y-4">
           <article
-            v-for="person in collaborators"
-            :key="person.email"
+            v-for="person in filteredCollaborators"
+            :key="person.name"
             class="bg-white rounded-3xl p-4"
           >
             <div class="flex items-start justify-between gap-3">
               <div class="flex items-start gap-3 min-w-0">
-                <img
-                  :src="person.avatar"
-                  :alt="person.name"
-                  class="w-12 h-12 rounded-full object-cover"
-                />
+                <div
+                  class="w-14 h-14 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center shrink-0 self-center"
+                >
+                  <img
+                    v-if="person.avatar"
+                    :src="person.avatar"
+                    :alt="person.name"
+                    class="w-14 h-14 object-cover"
+                  />
+                  <span v-else class="text-2xl">{{ person.emoji }}</span>
+                </div>
 
                 <div class="min-w-0">
                   <p
-                    class="text-[15px] leading-[20px] text-[#101319] font-semibold"
+                    class="text-[14px]-regular leading-[20px] text-[#000000] tracking-[-0.23px] w-400 font-medium truncate"
                   >
                     {{ person.name }}
                   </p>
-                  <p class="text-[13px] leading-[18px] text-[#7f8084] truncate">
-                    {{ person.email }}
-                  </p>
-                  <p class="mt-1 text-[12px] leading-[16px] text-brand-aqua">
+                  <p
+                    class="mt-1 text-[13px]-regular leading-[18px] text-gray-400"
+                  >
                     {{ person.role }}
                   </p>
+
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    <span
+                      class="h-6 px-3 rounded-lg bg-brand-aqua text-white inline-flex items-center justify-center gap-2 text-[32px]-regular leading-[22px]"
+                    >
+                      <Icon
+                        name="i-heroicons-check-badge"
+                        class="text-[11px] leading-[13px]"
+                      />
+                    </span>
+
+                    <span
+                      class="h-7 px-3 rounded-lg bg-brand-aqua/10 text-brand-aqua inline-flex items-center gap-2 text-[11px]-regular leading-[13px]"
+                    >
+                      <Icon
+                        name="i-heroicons-home"
+                        class="text-[11px] leading-[13px]"
+                      />
+                      {{ person.properties }} Properties
+                    </span>
+
+                    <span
+                      class="h-7 px-3 rounded-lg bg-brand-aqua/10 text-brand-aqua inline-flex items-center gap-2 text-[11px]-regular leading-[13px]"
+                    >
+                      <Icon
+                        name="i-heroicons-user-group"
+                        class="text-[11px] leading-[13px]"
+                      />
+                      {{ person.sharedClients }} Shared
+                      {{ person.sharedClients === 1 ? "Client" : "Clients" }}
+                    </span>
+
+                    <span
+                      class="h-7 px-3 rounded-lg bg-brand-aqua/10 text-brand-aqua inline-flex items-center text-[11px]-regular leading-[13px]"
+                    >
+                      {{ person.accessLevel }}
+                    </span>
+                  </div>
                 </div>
               </div>
 
               <button
                 type="button"
-                class="w-9 h-9 rounded-full border border-[#d9dae0] text-[#1f2024] inline-flex items-center justify-center"
-                @click="removeCollaborator(person.email)"
-                :aria-label="`Remove ${person.name}`"
+                class="w-25px h-25px shrink-0 self-center text-gray-300 inline-flex items-center justify-center"
+                :aria-label="`Open ${person.name}`"
               >
-                <Icon name="i-heroicons-trash" class="w-4 h-4" />
+                <Icon
+                  name="i-heroicons-chevron-right"
+                  class="w-5 h-5 text-[#3C3C434D]"
+                />
               </button>
             </div>
           </article>
         </div>
       </section>
-
-      <section class="mt-6">
-        <h2
-          class="text-[15px] leading-[20px] font-semibold text-[#101319] mb-3"
-        >
-          Access Settings
-        </h2>
-
-        <div class="space-y-3">
-          <div
-            v-for="setting in accessSettings"
-            :key="setting.label"
-            class="bg-white rounded-3xl p-4 flex items-center justify-between"
-          >
-            <div>
-              <p class="text-[15px] leading-[20px] text-[#101319]">
-                {{ setting.label }}
-              </p>
-              <p class="text-[13px] leading-[18px] text-[#7f8084]">
-                {{ setting.description }}
-              </p>
-            </div>
-
-            <button
-              type="button"
-              class="relative w-12 h-7 rounded-full transition-colors"
-              :class="setting.value ? 'bg-brand-aqua' : 'bg-[#d9dae0]'"
-              @click="setting.value = !setting.value"
-              :aria-label="`Toggle ${setting.label}`"
-            >
-              <span
-                class="absolute top-0.5 w-6 h-6 rounded-full bg-white transition-transform"
-                :class="
-                  setting.value ? 'translate-x-[-2px]' : 'translate-x-[-20px]'
-                "
-              />
-            </button>
-          </div>
-        </div>
-      </section>
     </main>
+
+    <div
+      v-if="showCollaboratorTypeModal"
+      class="fixed inset-0 z-50 bg-black/30 flex items-end"
+      @click.self="closeCollaboratorTypeModal"
+    >
+      <div class="w-full rounded-t-[34px] bg-[#f2f2f7] px-4 pt-3 pb-6">
+        <div class="w-[72px] h-[6px] rounded-full bg-[#3c3c43]/30 mx-auto" />
+
+        <div class="mt-4 flex justify-end">
+          <button
+            type="button"
+            class="w-12 h-12 rounded-full bg-black/10 inline-flex items-center justify-center"
+            @click="closeCollaboratorTypeModal"
+            aria-label="Close"
+          >
+            <Icon name="i-heroicons-x-mark" class="w-7 h-7 text-black/40" />
+          </button>
+        </div>
+
+        <h3
+          class="mt-2 text-[18px]-semibold leading-[24px] font-Plus Jakarta Sans text-[#171717]"
+        >
+          Collaborator Type
+        </h3>
+        <p class="mt-2 text-[15px]-regular leading-[20px] text-[#3c3c43]/60">
+          Assign type of partnership to this account...
+        </p>
+
+        <div class="mt-7 grid grid-cols-2 gap-3">
+          <button
+            v-for="option in collaboratorTypeOptions"
+            :key="option.key"
+            type="button"
+            class="rounded-3xl bg-white px-4 py-6 min-h-[170px] border text-center"
+            :class="
+              selectedCollaboratorType === option.key
+                ? 'border-brand-aqua border-[3px]'
+                : 'border-[#d1d1d6]'
+            "
+            @click="selectedCollaboratorType = option.key"
+          >
+            <Icon
+              name="i-heroicons-user-group"
+              class="w-[15px] h-[20px] mx-auto text-[#3C3C43]/60"
+            />
+            <p
+              class="mt-3 text-[17px]-regular leading-[22px] font-semibold text-[#3C3C43]/60 tracking-[-0.43px]"
+            >
+              {{ option.title }}
+            </p>
+            <p
+              class="mt-2 text-[13px]-regular leading-[18px] text-[#3C3C43]/60 tracking-[-0.08px]"
+            >
+              {{ option.description }}
+            </p>
+          </button>
+        </div>
+
+        <button
+          type="button"
+          class="mt-8 w-full h-14 rounded-2xl bg-brand-aqua text-white text-[20px] leading-[24px] font-medium"
+          @click="continueCollaboratorType"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 definePageMeta({
   title: "Collaborators - UmovingU",
+  path: "/profile/collabarot-information",
+  alias: [
+    "/profile/collabarat-information",
+    "/profile/collaborator-information",
+    "/profile/collaborators-information",
+  ],
 });
+
+const searchText = ref("");
 
 const collaborators = ref([
   {
     name: "Maxine Wilson",
-    email: "maxinewilson@wilson.co.uk",
-    role: "Owner",
+    role: "Property Owner",
+    type: "team",
+    properties: 5,
+    sharedClients: 3,
+    accessLevel: "Full Access",
+    status: "active",
     avatar: "/op-icons/temp/profilepic.png",
+    emoji: "🧑‍💼",
   },
   {
-    name: "David Smith",
-    email: "david.smith@davidsonlaw.co.uk",
-    role: "Solicitor",
-    avatar: "/op-icons/temp/profilepic.png",
+    name: "Paul Hudson",
+    role: "Co-Listing Partner",
+    type: "partner",
+    properties: 3,
+    sharedClients: 2,
+    accessLevel: "Full Access",
+    status: "active",
+    avatar: "/op-icons/temp/paul%20hudson.png",
+    emoji: "👨🏻‍🏫",
   },
   {
-    name: "Olivia Thompson",
-    email: "olivia.thompson@acmeagency.co.uk",
-    role: "Estate Agent",
-    avatar: "/op-icons/temp/profilepic.png",
+    name: "Michael Brown",
+    role: "Senior Agent",
+    type: "partner",
+    properties: 7,
+    sharedClients: 5,
+    accessLevel: "Full Access",
+    status: "active",
+    avatar: "/op-icons/temp/michael%20brown.png",
+    emoji: "👨🏽‍💻",
+  },
+  {
+    name: "Emily Chen",
+    role: "Junior Agent",
+    type: "partner",
+    properties: 4,
+    sharedClients: 1,
+    accessLevel: "No Access",
+    status: "client",
+    avatar: "/op-icons/temp/emily%20chen.png",
+    emoji: "🐶",
   },
 ]);
 
-const accessSettings = ref([
-  {
-    label: "Allow collaborators to upload documents",
-    description: "Permit secure document uploads for this property.",
-    value: true,
-  },
-  {
-    label: "Allow collaborators to view progress",
-    description: "Show milestones and completed tasks.",
-    value: true,
-  },
-  {
-    label: "Email alerts for collaborator updates",
-    description: "Receive an email when permissions or members change.",
-    value: false,
-  },
-]);
+const ownerName = computed(
+  () =>
+    collaborators.value.find((person) => person.type === "team")?.name || "-",
+);
 
-const removeCollaborator = (email) => {
-  collaborators.value = collaborators.value.filter(
-    (person) => person.email !== email,
-  );
+const partnerCount = computed(
+  () =>
+    collaborators.value.filter((person) => person.type === "partner").length,
+);
+
+const clientCount = computed(
+  () =>
+    collaborators.value.filter((person) => person.status === "client").length,
+);
+
+const pendingCount = computed(
+  () =>
+    collaborators.value.filter((person) => person.status === "pending").length,
+);
+
+const filteredCollaborators = computed(() => {
+  if (!searchText.value.trim()) {
+    return collaborators.value;
+  }
+
+  const query = searchText.value.toLowerCase();
+  return collaborators.value.filter((person) => {
+    return (
+      person.name.toLowerCase().includes(query) ||
+      person.role.toLowerCase().includes(query)
+    );
+  });
+});
+
+const summaryCollaborators = computed(() => collaborators.value.slice(0, 4));
+
+const showCollaboratorTypeModal = ref(false);
+const selectedCollaboratorType = ref("referrals");
+
+const collaboratorTypeOptions = [
+  {
+    key: "referrals",
+    title: "Referrals",
+    description: "Share clients and earn referral fees",
+  },
+  {
+    key: "co-listing",
+    title: "Co-listing",
+    description: "Collaborate on property listings",
+  },
+  {
+    key: "joint-venture",
+    title: "Joint Venture",
+    description: "Partner on investments and developments",
+  },
+  {
+    key: "market-specialist",
+    title: "Market Specialist",
+    description: "Expert in specific property types/areas",
+  },
+];
+
+const openCollaboratorTypeModal = () => {
+  showCollaboratorTypeModal.value = true;
 };
 
-const addCollaborator = () => {
-  navigateTo("/profile");
+const closeCollaboratorTypeModal = () => {
+  showCollaboratorTypeModal.value = false;
+};
+
+const continueCollaboratorType = () => {
+  showCollaboratorTypeModal.value = false;
 };
 
 const goBack = () => {
@@ -203,3 +442,29 @@ const goBack = () => {
   navigateTo("/profile");
 };
 </script>
+
+<style scoped>
+.avatar-stack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-avatar {
+  width: 118px;
+  height: 118px;
+  flex: 0 0 auto;
+  border-radius: 9999px;
+  border: 8px solid #ffffff;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.summary-avatar + .summary-avatar {
+  margin-left: -18px;
+}
+</style>

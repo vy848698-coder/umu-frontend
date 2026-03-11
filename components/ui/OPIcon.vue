@@ -135,6 +135,16 @@ const iconMap: Record<string, string> = {
   Bell: "/op-icons/profile/bell.svg",
   Email: "/op-icons/profile/email.svg",
   SMS: "/op-icons/profile/sms.svg",
+  PaulHudson: "/op-icons/temp/paul.svg",
+  Mastercard: "/op-icons/temp/mastercard.svg",
+  Visa: "/op-icons/temp/visa.svg",
+  Applepay: "/op-icons/temp/applepay.svg",
+  Gpay: "/op-icons/temp/gpay.svg",
+  Paypal: "/op-icons/temp/paypal.svg",
+  Klarna: "/op-icons/temp/klarna.svg",
+  Badge: "/op-icons/temp/badge.svg",
+  PropertyPassport1: "/op-icons/temp/property-1.svg",
+  PropertyPassport2: "/op-icons/temp/property-2.svg",
 };
 
 const iconPath = computed(() => {
