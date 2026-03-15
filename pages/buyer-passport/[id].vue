@@ -370,21 +370,22 @@ function goToSection(sectionId: string) {
 }
 
 .buyer-address {
-  color: #000;
+  color: #000000;
   font-weight: 590;
-  font-size: 17px;
-  line-height: 22px;
-  letter-spacing: -0.43px;
-  margin: 0 0 2px;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.45px;
+  font-family: sf-pro;
+  font-style: semi-bold;
 }
 
 .buyer-city {
-  color: #3c3c4399;
+  color: #3c3c43;
   font-weight: 400;
-  font-size: 17px;
-  line-height: 22px;
-  letter-spacing: -0.43px;
-  margin: 0 0 2px;
+  font-size: 15px;
+  line-height: 20px;
+  font-family: sf-pro;
+  letter-spacing: -0.23px;
 }
 
 .buyer-price {
@@ -393,13 +394,18 @@ function goToSection(sectionId: string) {
   font-size: 17px;
   line-height: 22px;
   letter-spacing: -0.43px;
+  font-family: sf-pro;
+  font-style: regular;
   margin: 0;
 }
 
 .buyer-estimated {
-  font-size: 12px;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.06px;
   font-weight: 400;
-  color: #999;
+  font-family: sf-pro;
+  color: #3c3c43;
   margin-left: 6px;
 }
 

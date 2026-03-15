@@ -179,6 +179,8 @@ const iconMap: Record<string, string> = {
   verifiedFilled: '/op-icons/verifyOwnership/verifiedFilled.svg',
   successfulProcess: '/op-icons/verifyOwnership/successfulProcess.svg',
   verifiedDocument: '/op-icons/verifyOwnership/verifiedDocument.svg',
+  propertyImage: '/op-icons/temp/property.svg',
+  file: '/op-icons/temp/file.svg',
 }
 
 const iconPath = computed(() => {
