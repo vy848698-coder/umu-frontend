@@ -21,22 +21,30 @@ export default defineEventHandler(async (event) => {
   // Simulate processing time
   await new Promise(resolve => setTimeout(resolve, 1000))
   
-  // Mock successful login
-  if (email === 'user@example.com' && password === 'password') {
+  // Mock successful login - accept test emails
+  const testCredentials = [
+    { email: 'vy848698@gmail.com', password: 'password' },
+    { email: 'vk3630932@gmail.com', password: 'password' },
+    { email: 'user@example.com', password: 'password' }
+  ]
+  
+  const validUser = testCredentials.find(cred => cred.email === email && cred.password === password)
+  
+  if (validUser) {
     return {
       success: true,
       message: 'Login successful',
       user: {
         id: '1',
         email: email,
-        name: 'John Doe',
+        name: 'Test User',
         profile: {
           phone: '+1234567890',
           propertyType: 'house',
           goals: ['buy', 'invest']
         }
       },
-      token: 'mock-jwt-token'
+      token: 'mock-jwt-token-' + Date.now()
     }
   }
   

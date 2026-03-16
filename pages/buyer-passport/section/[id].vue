@@ -12,7 +12,7 @@
         <!-- Hero icon + title -->
         <div class="section-hero">
           <div class="section-hero-icon">
-            <OPIcon :name="section.imageKey || 'fittingsContents'" class="w-[120px] h-[120px]" />
+            <img src="/op-icons/temp/book.svg" alt="Section icon" class="w-[120px] h-[120px]" />
           </div>
           <h1 class="section-hero-title">{{ section.title }}</h1>
           <p class="section-hero-sub">{{ section.subtitle || section.description || 'Official property record' }}</p>
@@ -293,11 +293,13 @@ function goToTask(taskId: string) {
 }
 
 .section-hero-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #1a1a1a;
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 590;
+  font-family: sf-pro;
+  letter-spacing: 0.45px;
+  color: #000000;
   margin: 0 0 6px;
-  line-height: 1.2;
 }
 
 .section-hero-sub {
@@ -362,9 +364,11 @@ function goToTask(taskId: string) {
 
 .section-stat-label {
   font-size: 11px;
+  line-height: 13px;
+  font-weight: 400;
+  font-family: sf-pro;
   color: #3c3c4399;
   margin: 0 0 2px;
-  line-height: 1.3;
 }
 
 .section-stat-value {
@@ -384,7 +388,7 @@ function goToTask(taskId: string) {
   justify-content: space-between;
   align-items: center;
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 14px 16px;
   margin-bottom: 12px;
   cursor: pointer;
@@ -392,9 +396,12 @@ function goToTask(taskId: string) {
 }
 
 .section-details-label {
-  font-size: 15px;
+  font-size: 16px;
+  line-height: 21px;
   font-weight: 590;
-  color: #000;
+  color: #000000;
+  letter-spacing: 0.31px;
+  font-family: sf-pro;
 }
 
 /* Tasks list */

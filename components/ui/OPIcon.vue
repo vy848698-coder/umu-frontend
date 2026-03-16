@@ -181,6 +181,13 @@ const iconMap: Record<string, string> = {
   verifiedDocument: '/op-icons/verifyOwnership/verifiedDocument.svg',
   propertyImage: '/op-icons/temp/property.svg',
   file: '/op-icons/temp/file.svg',
+  houseType: '/op-icons/temp/house.svg',
+  has: '/op-icons/temp/has.svg',
+  area: '/op-icons/temp/area.svg',
+  electric: '/op-icons/temp/electric.svg',
+  tenure: '/op-icons/temp/tenure.svg',
+  year: '/op-icons/temp/year.svg',
+  book: '/op-icons/temp/book.svg',
 }
 
 const iconPath = computed(() => {

@@ -67,18 +67,18 @@
         <!-- Badges -->
         <div class="buyer-badges" v-if="data.property">
           <span v-if="data.property.bedrooms" class="buyer-badge">
-            <OPIcon name="bedroomWhite" class="w-[13px] h-[13px]" />
+            <OPIcon name="bedroomWhite" class="w-[11px] h-[13px]" />
             {{ data.property.bedrooms }}
           </span>
           <span v-if="data.property.bathrooms" class="buyer-badge">
-            <OPIcon name="bathroomWhite" class="w-[13px] h-[13px]" />
+            <OPIcon name="bathroomWhite" class="w-[11px] h-[13px]" />
             {{ data.property.bathrooms }}
           </span>
           <span v-if="data.property.propertyType" class="buyer-badge">
             {{ data.property.propertyType }}
           </span>
           <span v-if="data.property.sqft" class="buyer-badge">
-            <OPIcon name="sqftWhite" class="w-[13px] h-[13px]" />
+            <OPIcon name="sqftWhite" class="w-[11px] h-[13px]" />
             {{ data.property.sqft.toLocaleString() }} sqft
           </span>
         </div>
@@ -91,7 +91,7 @@
             <div class="buyer-details-grid">
               <div class="buyer-detail-item">
                 <div class="buyer-detail-icon-wrap">
-                  <OPIcon name="propertyTypeIcon" class="w-[28px] h-[28px]" />
+                  <OPIcon name="houseType" class="w-[18px] h-[18px]" />
                 </div>
                 <div>
                   <p class="buyer-detail-label">Property type</p>
@@ -100,7 +100,7 @@
               </div>
               <div class="buyer-detail-item">
                 <div class="buyer-detail-icon-wrap">
-                  <OPIcon name="titleNumberIcon" class="w-[28px] h-[28px]" />
+                  <OPIcon name="has" class="w-[18px] h-[18px]" />
                 </div>
                 <div>
                   <p class="buyer-detail-label">Title number</p>
@@ -109,7 +109,7 @@
               </div>
               <div class="buyer-detail-item">
                 <div class="buyer-detail-icon-wrap">
-                  <OPIcon name="sqftIcon" class="w-[28px] h-[28px]" />
+                  <OPIcon name="area" class="w-[18px] h-[18px]" />
                 </div>
                 <div>
                   <p class="buyer-detail-label">Area sqft</p>
@@ -118,7 +118,7 @@
               </div>
               <div class="buyer-detail-item">
                 <div class="buyer-detail-icon-wrap">
-                  <OPIcon name="epcIcon" class="w-[28px] h-[28px]" />
+                  <OPIcon name="electric" class="w-[18px] h-[18px]" />
                 </div>
                 <div>
                   <p class="buyer-detail-label">EPC Rating</p>
@@ -127,7 +127,7 @@
               </div>
               <div class="buyer-detail-item">
                 <div class="buyer-detail-icon-wrap">
-                  <OPIcon name="tenureIcon" class="w-[28px] h-[28px]" />
+                  <OPIcon name="tenure" class="w-[18px] h-[18px]" />
                 </div>
                 <div>
                   <p class="buyer-detail-label">Tenure</p>
@@ -136,7 +136,7 @@
               </div>
               <div class="buyer-detail-item">
                 <div class="buyer-detail-icon-wrap">
-                  <OPIcon name="yearBuiltIcon" class="w-[28px] h-[28px]" />
+                  <OPIcon name="year" class="w-[18px] h-[18px]" />
                 </div>
                 <div>
                   <p class="buyer-detail-label">Year Built</p>
@@ -156,14 +156,15 @@
           <div class="buyer-search-row">
             <div class="buyer-search-input">
               <svg width="16" height="16" fill="none" viewBox="0 0 24 24" class="buyer-search-icon">
-                <circle cx="11" cy="11" r="8" stroke="#999" stroke-width="2"/>
-                <path d="M21 21l-4.35-4.35" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="11" cy="11" r="8" stroke="#00a19a" stroke-width="2"/>
+                <path d="M21 21l-4.35-4.35" stroke="#00a19a" stroke-width="2" stroke-linecap="round"/>
               </svg>
               <input v-model="searchQuery" type="text" placeholder="Search Records..." />
+              <span class="buyer-search-label">Search</span>
             </div>
             <button class="buyer-sort-btn">
-              <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-                <path d="M3 6h18M6 12h12M9 18h6" stroke="#00a19a" stroke-width="2" stroke-linecap="round"/>
+              <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.90381 0.227051C4.04053 0.0756836 4.2041 0.00244141 4.39453 0.00732422C4.58496 0.00732422 4.74854 0.0805664 4.88525 0.227051L8.57666 3.99902C8.71338 4.14062 8.78174 4.30176 8.78174 4.48242C8.78174 4.67773 8.7207 4.83643 8.59863 4.9585C8.48145 5.07568 8.32764 5.13428 8.13721 5.13428C7.95654 5.13428 7.80518 5.0708 7.68311 4.94385L6.15234 3.36914L4.98047 2.00684L5.04639 3.69873V13.1104C5.04639 13.3008 4.98535 13.457 4.86328 13.5791C4.74121 13.7061 4.58496 13.7695 4.39453 13.7695C4.19922 13.7695 4.04053 13.7061 3.91846 13.5791C3.79639 13.457 3.73535 13.3008 3.73535 13.1104V3.69873L3.80859 2.00684L2.62939 3.36914L1.10596 4.94385C0.979004 5.0708 0.825195 5.13428 0.644531 5.13428C0.454102 5.13428 0.297852 5.07568 0.175781 4.9585C0.0585938 4.83643 0 4.67773 0 4.48242C0 4.30176 0.0683594 4.14062 0.205078 3.99902L3.90381 0.227051ZM13.2422 13.5571C13.1006 13.7036 12.9346 13.7744 12.7441 13.7695C12.5586 13.7695 12.3975 13.6987 12.2607 13.5571L8.56934 9.77051C8.42773 9.63379 8.35693 9.47266 8.35693 9.28711C8.35693 9.0918 8.41797 8.93555 8.54004 8.81836C8.66211 8.70117 8.81836 8.64258 9.00879 8.64258C9.18457 8.64258 9.33594 8.70361 9.46289 8.82568L10.9863 10.4004L12.1655 11.77L12.0923 10.0781V0.666504C12.0923 0.476074 12.1533 0.319824 12.2754 0.197754C12.4023 0.0708008 12.561 0.00732422 12.7515 0.00732422C12.9419 0.00732422 13.0981 0.0708008 13.2202 0.197754C13.3423 0.319824 13.4033 0.476074 13.4033 0.666504V10.0781L13.3374 11.77L14.5166 10.4004L16.04 8.82568C16.1621 8.70361 16.3135 8.64258 16.4941 8.64258C16.6846 8.64258 16.8384 8.70117 16.9556 8.81836C17.0776 8.93555 17.1387 9.0918 17.1387 9.28711C17.1387 9.47266 17.0703 9.63379 16.9336 9.77051L13.2422 13.5571Z" fill="#00A19A"/>
               </svg>
             </button>
           </div>
@@ -360,13 +361,14 @@ function goToSection(sectionId: string) {
 /* Card */
 .buyer-card {
   position: relative;
-  padding: 24px 16px 0;
+  padding: 19px 14px 0;
   background: white;
 }
 
 /* Title */
 .buyer-title-block {
   margin-bottom: 14px;
+
 }
 
 .buyer-address {
@@ -376,36 +378,31 @@ function goToSection(sectionId: string) {
   line-height: 25px;
   letter-spacing: -0.45px;
   font-family: sf-pro;
-  font-style: semi-bold;
 }
 
 .buyer-city {
-  color: #3c3c43;
-  font-weight: 400;
+  color: #3c3c4399;
   font-size: 15px;
   line-height: 20px;
   font-family: sf-pro;
   letter-spacing: -0.23px;
+  font-weight: 400;
 }
 
 .buyer-price {
   color: #00a19a;
-  font-weight: 400;
   font-size: 17px;
   line-height: 22px;
   letter-spacing: -0.43px;
   font-family: sf-pro;
-  font-style: regular;
-  margin: 0;
 }
 
 .buyer-estimated {
   font-size: 11px;
   line-height: 13px;
   letter-spacing: 0.06px;
-  font-weight: 400;
   font-family: sf-pro;
-  color: #3c3c43;
+  color: #3c3c4399;
   margin-left: 6px;
 }
 
@@ -420,12 +417,12 @@ function goToSection(sectionId: string) {
 .buyer-badge {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   background: #00a19a;
   color: #fff;
-  padding: 6px 12px;
+  padding: 2px 8px 2px 6px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 /* Section */
@@ -437,12 +434,16 @@ function goToSection(sectionId: string) {
   font-size: 17px;
   font-weight: 590;
   color: #000;
-  margin: 0 0 4px;
   line-height: 22px;
+  letter-spacing: 0.43px;
+  font-family: sf-pro;
 }
 
 .buyer-section-sub {
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  font-family: sf-pro;
   color: #3c3c4399;
   margin: 0 0 14px;
 }
@@ -451,7 +452,7 @@ function goToSection(sectionId: string) {
 .buyer-details-card {
   background: #f8f8fa;
   border-radius: 16px;
-  padding: 8px 16px;
+  padding: 8px 16px 8px 16px;
 }
 
 .buyer-details-grid {
@@ -468,8 +469,8 @@ function goToSection(sectionId: string) {
 }
 
 .buyer-detail-icon-wrap {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -478,14 +479,20 @@ function goToSection(sectionId: string) {
 
 .buyer-detail-label {
   font-size: 11px;
+  line-height: 13px;
+  font-weight: 400;
+  font-family: sf-pro;
   color: #3c3c4399;
   margin: 0 0 2px;
-  line-height: 1.3;
+  letter-spacing: 0.06px;
 }
 
 .buyer-detail-value {
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 18px;
   font-weight: 590;
+  font-family: sf-pro;
+  letter-spacing: 0.08px;
   color: #00a19a;
   margin: 0;
 }
@@ -501,20 +508,21 @@ function goToSection(sectionId: string) {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: white;
-  border: 1px solid #e0e0e0;
+  gap: 10px;
+  background: #e8f9f7;
+  border: none;
   border-radius: 24px;
-  padding: 10px 14px;
+  padding: 12px 16px;
 }
 
 .buyer-search-input input {
   flex: 1;
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 15px;
   color: #333;
   background: transparent;
+  font-weight: 400;
 }
 
 .buyer-search-input input::placeholder {
@@ -523,6 +531,16 @@ function goToSection(sectionId: string) {
 
 .buyer-search-icon {
   flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.buyer-search-label {
+  color: #00a19a;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: sf-pro;
+  letter-spacing: 0.23px;
 }
 
 .buyer-sort-btn {
@@ -530,11 +548,16 @@ function goToSection(sectionId: string) {
   height: 44px;
   border-radius: 50%;
   background: white;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background 0.15s;
+}
+
+.buyer-sort-btn:active {
+  background: #f5f5f5;
 }
 
 /* Records list */

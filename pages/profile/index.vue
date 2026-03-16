@@ -160,14 +160,15 @@ const profileItems = [
   },
   {
     title: "Downloaded Snapshots",
-    description:
-      "Easily export all your downloaded snapshots into formats such as PDF.",
+    description: "Easily export all your downloaded snapshots into formats such as PDF.",
     icon: "Snapshots",
+    route: "/profile/snapshot",
   },
   {
     title: "Saved Properties",
     description: "All your saved and recently viewed properties, organized.",
     icon: "SavedProperties",
+    route: "/profile/saved-properties",
   },
   {
     title: "Billing & Payment History",
