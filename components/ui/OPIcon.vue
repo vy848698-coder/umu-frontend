@@ -188,6 +188,7 @@ const iconMap: Record<string, string> = {
   tenure: '/op-icons/temp/tenure.svg',
   year: '/op-icons/temp/year.svg',
   book: '/op-icons/temp/book.svg',
+  logo: '/op-icons/temp/logo.svg',
 }
 
 const iconPath = computed(() => {

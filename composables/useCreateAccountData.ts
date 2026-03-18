@@ -164,7 +164,7 @@ export const useCreateAccountData = () => {
         dob: form.dateOfBirth,
         postcode: form.postcode,
         gender: form.gender,
-        password: form.password,
+        password: form.password, 
       })
       console.log('Registration successful:', response)
 
