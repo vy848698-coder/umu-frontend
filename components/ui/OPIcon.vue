@@ -189,6 +189,9 @@ const iconMap: Record<string, string> = {
   year: '/op-icons/temp/year.svg',
   book: '/op-icons/temp/book.svg',
   logo: '/op-icons/temp/logo.svg',
+  read: '/op-icons/temp/read.svg',
+  send: '/op-icons/temp/send.svg',
+  more: '/op-icons/temp/more.svg',
 }
 
 const iconPath = computed(() => {
