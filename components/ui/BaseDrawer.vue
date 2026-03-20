@@ -113,29 +113,24 @@ onUnmounted(() => {
 /* Drawer Overlay */
 .drawer-overlay {
   position: fixed;
-  top: 20px;
-  left: 50%;
-  max-width: 28rem;
-  right: 0;
-  bottom: 0;
+  inset: 0;
+  width: 100%;
+  max-width: none;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 50;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  transform: translateX(-50%);
+  transform: none;
 }
 
 .drawer-overlay--fullscreen {
   align-items: stretch;
   justify-content: stretch;
   background-color: rgba(0, 0, 0, 0.9);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  max-width: 100%;
+  inset: 0;
   width: 100%;
+  max-width: 100%;
   transform: none;
 }
 
@@ -144,7 +139,7 @@ onUnmounted(() => {
   background-color: #f3f4f6;
   width: 100%;
   max-width: 28rem;
-  max-height: 90vh;
+  max-height: min(90dvh, 90vh);
   border-radius: 1rem 1rem 0 0;
   display: flex;
   flex-direction: column;
@@ -301,8 +296,9 @@ onUnmounted(() => {
 @media (max-width: 480px) {
   .drawer {
     max-width: 100%;
+    width: 100%;
     margin: 0;
-    max-height: 85vh; /* Adjust for mobile */
+    max-height: 100dvh;
   }
 
   .drawer__header {
